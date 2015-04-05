@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{eaaecd34-ed99-4856-bf86-037892d695cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\science">
+      <UniqueIdentifier>{dbc5bd72-2c4e-4ef7-8060-46f090ce1522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\science_VS">
+      <UniqueIdentifier>{78e59404-09f1-49cd-909c-54625f0f12b6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bugs_VS\stdafx.cpp">
+      <Filter>src\science_VS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceButtonEventHandler.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceCollisionListener.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceDataLoader.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceGame.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceKeyEventHandler.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceMouseEventHandler.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bugs\ScienceTextGenerator.cpp">
+      <Filter>src\science</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\bugs_VS\Resource.h">
+      <Filter>src\science_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs_VS\stdafx.h">
+      <Filter>src\science_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs_VS\targetver.h">
+      <Filter>src\science_VS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceButtonEventHandler.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceCollisionListener.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceDataLoader.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceGame.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceKeyEventHandler.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceMouseEventHandler.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bugs\ScienceTextGenerator.h">
+      <Filter>src\science</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\bugs_VS\ReadMe.txt">
+      <Filter>src\science_VS</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
