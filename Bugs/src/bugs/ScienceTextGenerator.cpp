@@ -86,29 +86,6 @@ void ScienceTextGenerator::appendEnemyLocation(Game *game)
 	wstringstream wss;
 	if (game->getGSM()->isGameInProgress())
 	{
-		int zero = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(0);
-		int one = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(1);
-		int two = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(2);
-		int three = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(3);
-		int four = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(4);
-		int five = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(5);
-		int six = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(6);
-		int seven = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(7);
-		int eight = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(8);
-		int nine = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(9);
-		int ten = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(10);
-		int eleven = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(11);
-		int twelve = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(12);
-		int thirteen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(13);
-		int fourteen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(14);
-		int fifteen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(15);
-		int sixteen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(16);
-		int seventeen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(17);
-		int eighteen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(18);
-		int nineteen = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(19);
-		int twenty = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(20);
-		//int twentyone = game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(21);
-		// enemyLocationText.append(W_ANT_CENTER_TEXT);
 		wss << L"0- ";
 		wss << game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(0);
 		wss << L",  1- ";
@@ -151,7 +128,7 @@ void ScienceTextGenerator::appendEnemyLocation(Game *game)
 		wss << game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(19);
 		wss << L"\n 20- ";
 		wss << game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(20);
-		wss << L"\n Off World- ";
+		wss << L"\n Off World- r";
 		wss << game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(21);
 		wss << L"                             Bots in Scene -  ";
 		wss << game->getGSM()->getSpriteManager()->getSpritesinScene();
