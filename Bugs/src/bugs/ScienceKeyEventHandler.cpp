@@ -108,42 +108,6 @@ void ScienceKeyEventHandler::handleKeyEvents(Game *game)
 			viewportMoved = true;
 		}
 
-		//IF THE VIEWPORT IS NOT BEING MOVED BY THE USER MAKE SURE THE PLAYER SPRITE IS ONSCREEN
-		if (!viewportMoved)
-		{
-			//300 WIDTH BUFFER ALLOWS THE PLAYER TO ORIENT THE SCREEN AS THEY SEE FIT
-			if (viewportX > pp->getX() - viewportWidth + 300 || viewportX < pp->getX() - viewportWidth - 300)
-			{
-				if (viewportX > pp->getX() - viewportWidth - 10)
-				{
-					viewportVx -= MAX_VIEWPORT_AXIS_VELOCITY;
-					viewportMoved = true;
-				}
-
-				if (viewportX < pp->getX() - viewportWidth + 10)
-				{
-					viewportVx += MAX_VIEWPORT_AXIS_VELOCITY;
-					viewportMoved = true;
-				}
-			}
-
-			//150 WIDTH BUFFER ALLOWS THE PLAYER TO ORIENT THE SCREEN AN THEY SEE FIT
-			if (viewportY > pp->getY() - viewportHeight - 150 || viewportX < pp->getX() - viewportHeight + 150 )
-			{
-				if (viewportY < pp->getY() - viewportHeight + 10)
-				{
-					viewportVy += MAX_VIEWPORT_AXIS_VELOCITY;
-					viewportMoved = true;
-				}
-
-				if (viewportY > pp->getY() - viewportHeight - 10)
-				{
-					viewportVy -= MAX_VIEWPORT_AXIS_VELOCITY;
-					viewportMoved = true;
-				}
-			}
-		}
-
 		if (viewportMoved)
 			viewport->moveViewport((int)floor(viewportVx + 0.5f), (int)floor(viewportVy + 0.5f), game->getGSM()->getWorld()->getWorldWidth(), game->getGSM()->getWorld()->getWorldHeight());		
 	}
