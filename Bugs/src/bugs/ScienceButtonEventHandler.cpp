@@ -34,7 +34,7 @@ void ScienceButtonEventHandler::handleButtonEvents(Game *game,
 	// SO LET'S START THE GAME FROM THE FIRST LEVEL
 	else if (command.compare(W_START_COMMAND) == 0)
 	{
-	//	game->setCurrentLevelFileName(W_LEVEL_1_NAME);	DEAD FOR NOW, WE WILL USE THIS WHEN WE DEVELOP LEVELS FOR THE GAME
+	//	game->setCurrentLevelFileName(W_LEVEL_1_NAME);	//DEAD FOR NOW, WE WILL USE THIS WHEN WE DEVELOP LEVELS FOR THE GAME
 	//	game->startGame();
 	}
 	// THE USER PRESSED THE Quit BUTTON ON THE IN-GAME MENU,

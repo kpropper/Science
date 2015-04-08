@@ -125,41 +125,6 @@ void ScienceKeyEventHandler::handleKeyEvents(Game *game)
 		cursor->setActiveCursorID(id);
 	}
 
-	//LET'S ADD 10 ENEMIES IF THE USER PRESSED TO '+'  KEY
-	if (input->isKeyDownForFirstTime(VK_ADD))
-	{
-		int worldHeight = game->getGSM()->getWorld()->getWorldHeight();
-		int worldWidth = game->getGSM()->getWorld()->getWorldWidth();
-		for (int b = 10; b > 0; b--)
-		{
-			Physics *physics = game->getGSM()->getPhysics();
-			RandomJumpingBot *bot = new RandomJumpingBot(physics, 30, 120, 40);
-			physics->addCollidableObject(bot);
-			PhysicalProperties *pp = bot->getPhysicalProperties();
-			pp->setPosition((rand() % worldWidth),(rand() % worldHeight));
-			pp->setVelocity(((((float)rand()) / RAND_MAX * 20 - 10.0) *.01f), ((((float)rand()) / RAND_MAX * 20 - 10.0) *.01f));
-			bot->setSpriteType(enemySpriteType);
-			bot->setCurrentState(IDLE);
-			bot->setAlpha(255);
-			spriteManager->addBot(bot);
-			bot->affixTightAABBBoundingVolume();
-		}
-	}
-
-	//LET'S REMOVE 10 ENEMIES IF THE USER PRESSED TO '-'  KEY
-	if (input->isKeyDownForFirstTime(VK_SUBTRACT))
-	{
-		int numberOfSprites = spriteManager->getNumberOfSprites();
-		if (numberOfSprites >= 10)
-		{
-			for (int b = 10; b > 0; b--)
-			{
-				Bot *bot = spriteManager->getBotAtFront();
-				spriteManager->removeBot(bot);
-			}
-		}
-	}
-
 	// LET'S MESS WITH THE TARGET FRAME RATE IF THE USER PRESSES THE HOME OR END KEYS
 	WindowsTimer *timer = (WindowsTimer*)game->getTimer();
 	int fps = timer->getTargetFPS();
