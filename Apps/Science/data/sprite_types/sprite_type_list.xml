@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sprite_type_list>
-  <sprite_type>karl_propper</sprite_type>
-  <sprite_type>centipede_karl_propper</sprite_type>
+  <sprite_type>earthSprite</sprite_type>
+  <sprite_type>airSprite</sprite_type>
+  <sprite_type>fireSprite</sprite_type>
+  <sprite_type>energySpriteSprite</sprite_type>
+  <sprite_type>lifeSpriteSprite</sprite_type>
+  <sprite_type>mudSprite</sprite_type>
+  <sprite_type>waterSprite</sprite_type>
 </sprite_type_list>

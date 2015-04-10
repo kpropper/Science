@@ -9,8 +9,8 @@
 */
 
 // HERE IS THE Science GAME SETUP/INIT FILE. EVERYTHING WOULD START FROM HERE
-static const wstring	W_LEVEL_1_DIR			= L"data/levels/TopDownDesert/";
-static const wstring	W_LEVEL_1_NAME			= L"TopDownDesert.tmx";
+static const wstring	W_LEVEL_1_DIR			= L"data/levels/TopDownEmpty/";
+static const wstring	W_LEVEL_1_NAME			= L"TopDownEmpty.tmx";
 static const wstring	W_LEVEL_1_PATH			= W_LEVEL_1_DIR + W_LEVEL_1_NAME;
 static const wstring	W_INIT_FILE				= L"data/ScienceInit.txt";
 static const wstring	W_GUI_INIT_FILE			= L"data/ScienceGUI.txt";
