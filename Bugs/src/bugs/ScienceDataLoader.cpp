@@ -182,11 +182,11 @@ void ScienceDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	// @TODO - LATER WE'LL LOAD ALL LEVEL DATA FROM A FILE
 	Physics *physics = gsm->getPhysics();
 	physics->setGravity(W_GRAVITY);
+	
 	TopDownSprite *player = spriteManager->getPlayer();
 	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
 
-	// NOTE THAT RED BOX MAN IS SPRITE ID 1
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);
 	player->setSpriteType(playerSpriteType);
 	player->setAlpha(255);
@@ -201,39 +201,44 @@ void ScienceDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	player->setOnTileLastFrame(false);
 	player->affixTightAABBBoundingVolume();
 
-	AnimatedSpriteType *enemySpriteType = spriteManager->getSpriteType(1);
-
-//	makeRandomEnemyBot(game, enemySpriteType, 12, 12);
+	AnimatedSpriteType *earthSpriteType = spriteManager->getSpriteType(0);
+	AnimatedSpriteType *airSpriteType = spriteManager->getSpriteType(1);
+	AnimatedSpriteType *fireSpriteType = spriteManager->getSpriteType(2);
+	AnimatedSpriteType *energySpriteType = spriteManager->getSpriteType(3);
+	AnimatedSpriteType *lifeSpriteType = spriteManager->getSpriteType(4);
+	AnimatedSpriteType *mudSpriteType = spriteManager->getSpriteType(5);
+	AnimatedSpriteType *waterSpriteType = spriteManager->getSpriteType(6);
 
 	// AND LET'S ADD A BUNCH OF RANDOM JUMPING BOTS, FIRST ALONG
 	// A LINE NEAR THE TOP
 
 // UNCOMMENT THE FOLLOWING CODE BLOCK WHEN YOU ARE READY TO ADD SOME BOTS
-/*	for (int i = 2; i <= 26; i++)
+	/*
+	for (int i = 2; i <= 26; i++)
 	{
 		float botX = 400.0f + (i * 100.0f);
 		float botY = 100.0f;
 		makeRandomJumpingBot(game, botSpriteType, botX, botY);
-	}
+	}*/
 
 	// AND THEN STRATEGICALLY PLACED AROUND THE LEVEL
-	makeRandomJumpingBot(game, botSpriteType, 400, 100);
-	makeRandomJumpingBot(game, botSpriteType, 200, 400);
-	makeRandomJumpingBot(game, botSpriteType, 400, 400);
-	makeRandomJumpingBot(game, botSpriteType, 800, 700);
-	makeRandomJumpingBot(game, botSpriteType, 900, 700);
-	makeRandomJumpingBot(game, botSpriteType, 1000, 700);
-	makeRandomJumpingBot(game, botSpriteType, 100, 1000);
-	makeRandomJumpingBot(game, botSpriteType, 300, 1000);	
-	makeRandomJumpingBot(game, botSpriteType, 500, 1000);
-	makeRandomJumpingBot(game, botSpriteType, 100, 1400);
-	makeRandomJumpingBot(game, botSpriteType, 400, 1400);	
-	makeRandomJumpingBot(game, botSpriteType, 700, 1400);
+	makeRandomJumpingBot(game, earthSpriteType, 400, 100);
+	makeRandomJumpingBot(game, airSpriteType, 200, 400);
+	makeRandomJumpingBot(game, fireSpriteType, 400, 400);
+//	makeRandomJumpingBot(game, energySpriteType, 800, 700);
+//	makeRandomJumpingBot(game, lifeSpriteType, 900, 700);
+	makeRandomJumpingBot(game, mudSpriteType, 1000, 700);
+	makeRandomJumpingBot(game, waterSpriteType, 100, 1000);
+	makeRandomJumpingBot(game, fireSpriteType, 300, 1000);	
+	makeRandomJumpingBot(game, earthSpriteType, 500, 1000);
+	makeRandomJumpingBot(game, waterSpriteType, 100, 1400);
+	makeRandomJumpingBot(game, waterSpriteType, 400, 1400);	
+	makeRandomJumpingBot(game, fireSpriteType, 700, 1400);
 
 	// AND THEN A BUNCH LINED UP NEAR THE LEVEL EXIT
-	for (int i = 0; i < 14; i++)
-		makeRandomJumpingBot(game, botSpriteType, 1700.0f + (i*100.0f), 1300.0f);
-*/		
+//	for (int i = 0; i < 14; i++)
+//		makeRandomJumpingBot(game, botSpriteType, 1700.0f + (i*100.0f), 1300.0f);
+		
 }
 
 
@@ -252,22 +257,6 @@ void ScienceDataLoader::makeRandomJumpingBot(Game *game, AnimatedSpriteType *ran
 	bot->affixTightAABBBoundingVolume();
 }
 
-/*
-void SciecnceDataLoader::makeRandomEnemyBot(Game *game, AnimatedSpriteType *randomEnemyBotType, float initX, float initY)
-{
-	SpriteManager *spriteManager = game->getGSM()->getSpriteManager();
-	Physics *physics = game->getGSM()->getPhysics();
-	RandomJumpingBot *bot = new RandomJumpingBot(physics, 30, 120, 40);
-	physics->addCollidableObject(bot);
-	PhysicalProperties *pp = bot->getPhysicalProperties();
-	pp->setPosition(initX, initY);
-	bot->setSpriteType(randomEnemyBotType);
-	bot->setCurrentState(IDLE);
-	bot->setAlpha(255);
-	spriteManager->addBot(bot);
-	bot->affixTightAABBBoundingVolume();
-}
-*/
 
 /*
 	initScienceGUI - This method builds a GUI for the Science Game application.
