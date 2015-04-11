@@ -225,8 +225,8 @@ void ScienceDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	makeRandomJumpingBot(game, earthSpriteType, 400, 100);
 	makeRandomJumpingBot(game, airSpriteType, 200, 400);
 	makeRandomJumpingBot(game, fireSpriteType, 400, 400);
-//	makeRandomJumpingBot(game, energySpriteType, 800, 700);
-//	makeRandomJumpingBot(game, lifeSpriteType, 900, 700);
+	makeRandomJumpingBot(game, energySpriteType, 800, 700);
+	makeRandomJumpingBot(game, lifeSpriteType, 900, 700);
 	makeRandomJumpingBot(game, mudSpriteType, 1000, 700);
 	makeRandomJumpingBot(game, waterSpriteType, 100, 1000);
 	makeRandomJumpingBot(game, fireSpriteType, 300, 1000);	
