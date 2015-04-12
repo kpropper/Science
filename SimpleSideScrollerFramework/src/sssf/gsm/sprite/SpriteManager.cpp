@@ -328,7 +328,7 @@ AnimatedSprite* SpriteManager::getSpriteAt(int x, int y)
 		botY = bot->getBoundingVolume()->getTop();
 		botXW = bot->getBoundingVolume()->getRight();
 		botYH = bot->getBoundingVolume()->getBottom();
-		if (((x > botX) && (x < botXW)) && ((y > botY) && (y > botYH)))
+		if (((x > botX) && (x < botXW)) && ((y > botY) && (y < botYH)))
 		{
 			AnimatedSprite *selected = bot;
 			return selected;
