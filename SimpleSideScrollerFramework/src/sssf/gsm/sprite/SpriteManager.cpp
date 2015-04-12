@@ -319,6 +319,7 @@ AnimatedSprite* SpriteManager::getSpriteAt(int x, int y)
 	int botXW;
 	int botY;
 	int botYH;
+	AnimatedSprite *selected;
 	list<Bot*>::iterator botIterator;
 	botIterator = bots.begin();
 	while (botIterator != bots.end())
@@ -330,13 +331,13 @@ AnimatedSprite* SpriteManager::getSpriteAt(int x, int y)
 		botYH = bot->getBoundingVolume()->getBottom();
 		if (((x > botX) && (x < botXW)) && ((y > botY) && (y < botYH)))
 		{
-			AnimatedSprite *selected = bot;
+			selected = bot;
 			return selected;
 		}
 		botIterator++;
-
-		return NULL;
 	}
+
+	return NULL;
 }
 
 AnimatedSprite* SpriteManager::getSelectedSprite()

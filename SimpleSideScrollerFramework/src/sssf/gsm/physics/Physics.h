@@ -58,7 +58,7 @@ public:
 	map<CollidableObject*, set<Tile*>> spriteToTileCollisionsThisFrame;
 
 	// USED FOR TESTING PHYSICS BY TURNING IT ON AND OFF IN VARIOUS WAYS
-	bool activated;
+	bool activated = true;
 	bool activatedForSingleUpdate;
 
 	// CONSTRUCDT/DESTRUCTOR

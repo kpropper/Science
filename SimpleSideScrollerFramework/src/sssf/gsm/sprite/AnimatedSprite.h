@@ -47,7 +47,11 @@ protected:
 	// IS THE SPRITE SELECTED
 	bool isSelected = false;
 
+
+
 public:
+
+
 	// INLINED ACCESSOR METHODS
 	int					getAlpha()			{ return alpha;				}
 	list<PathNode>*		getCurrentPathToFollow() { return &currentPathToFollow; }
