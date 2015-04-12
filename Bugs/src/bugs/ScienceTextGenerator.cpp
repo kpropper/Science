@@ -86,6 +86,15 @@ void ScienceTextGenerator::appendEnemyLocation(Game *game)
 	wstringstream wss;
 	if (game->getGSM()->isGameInProgress())
 	{
+		if (game->getGSM()->getIsSpriteSelected())
+		{
+			wss << L"True";
+		}
+		else
+		{
+			wss << L"False";
+		}
+		/*
 		wss << L"0- ";
 		wss << game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(0);
 		wss << L",  1- ";
@@ -131,7 +140,7 @@ void ScienceTextGenerator::appendEnemyLocation(Game *game)
 		wss << L"\n Off World- r";
 		wss << game->getGSM()->getSpriteManager()->getNumberOfBotsInNode(21);
 		wss << L"                             Bots in Scene -  ";
-		wss << game->getGSM()->getSpriteManager()->getSpritesinScene();
+		wss << game->getGSM()->getSpriteManager()->getSpritesinScene();*/
 		textToGenerate.append(wss.str());
 
 	}
