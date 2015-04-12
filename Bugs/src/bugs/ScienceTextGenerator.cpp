@@ -88,7 +88,11 @@ void ScienceTextGenerator::appendEnemyLocation(Game *game)
 	{
 		if (game->getGSM()->getIsSpriteSelected())
 		{
-			wss << L"True";
+			wss << L"True \n Center X: ";
+			wss << game->getGSM()->getSpriteManager()->getSelectedSprite()->getBoundingVolume()->getCenterX();
+			wss << L"\n Center Y: ";
+			wss << game->getGSM()->getSpriteManager()->getSelectedSprite()->getBoundingVolume()->getCenterY();
+
 		}
 		else
 		{
