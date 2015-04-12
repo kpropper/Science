@@ -44,6 +44,9 @@ protected:
 	list<PathNode> currentPathToFollow;
 	list<PathNode>::iterator currentPathNode;
 
+	// IS THE SPRITE SELECTED
+	bool isSelected = false;
+
 public:
 	// INLINED ACCESSOR METHODS
 	int					getAlpha()			{ return alpha;				}
@@ -54,6 +57,7 @@ public:
 	AnimatedSpriteType*	getSpriteType()		{ return spriteType;		}
 	bool hasReachedDestination()
 	{	return currentPathNode == currentPathToFollow.end(); }
+	bool				getIsSelected()		{ return isSelected;		}
 
 	// INLINED MUTATOR METHODS
 	void setAlpha(int initAlpha)
@@ -67,6 +71,10 @@ public:
 	void clearPath()
 	{	currentPathToFollow.clear();
 		currentPathNode = currentPathToFollow.end(); 
+	}
+	void setIsSelected(bool selected)
+	{
+		isSelected = selected;
 	}
 
 	// METHODS DEFINED IN AnimatedSprite.cpp

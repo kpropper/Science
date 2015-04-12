@@ -312,3 +312,50 @@ int SpriteManager::getNumberOfBotsInNode(int index)
 {
 	return quadtree[index].size();
 }
+
+AnimatedSprite* SpriteManager::getSpriteAt(int x, int y)
+{
+	int botX;
+	int botXW;
+	int botY;
+	int botYH;
+	list<Bot*>::iterator botIterator;
+	botIterator = bots.begin();
+	while (botIterator != bots.end())
+	{
+		Bot *bot = (*botIterator);
+		botX = bot->getBoundingVolume()->getLeft();
+		botY = bot->getBoundingVolume()->getTop();
+		botXW = bot->getBoundingVolume()->getRight();
+		botYH = bot->getBoundingVolume()->getBottom();
+		if (((x > botX) && (x < botXW)) && ((y > botY) && (y > botYH)))
+		{
+			AnimatedSprite *selected = bot;
+			return selected;
+		}
+		botIterator++;
+
+		return NULL;
+	}
+}
+
+AnimatedSprite* SpriteManager::getSelectedSprite()
+{
+
+	list<Bot*>::iterator botIterator;
+	botIterator = bots.begin();
+	while (botIterator != bots.end())
+	{
+		Bot *bot = (*botIterator);
+		if (bot->getIsSelected())
+		{
+			AnimatedSprite *selected = bot;
+			return selected;
+		}
+		botIterator++;
+
+		return NULL;
+	}
+}
+
+

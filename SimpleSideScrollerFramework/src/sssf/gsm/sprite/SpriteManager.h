@@ -70,4 +70,6 @@ public:
 	void				updateQuadtree(Bot *botToAdd);
 	int					getNumberOfBotsInNode(int index);
 	int					getSpritesinScene();
+	AnimatedSprite*		getSpriteAt(int x, int y);
+	AnimatedSprite*     getSelectedSprite();
 };
