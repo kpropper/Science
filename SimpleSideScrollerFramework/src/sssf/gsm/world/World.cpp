@@ -174,3 +174,9 @@ bool World::overlapsCollidableTiles(int centerX, int centerY, int nodeWidth, int
 	}
 	return false;
 }
+
+void World::setB2DGravity(int xGravity, int yGravity)
+{
+	b2Vec2 gravity(xGravity, yGravity);
+	b2DWorld->SetGravity(gravity);
+}

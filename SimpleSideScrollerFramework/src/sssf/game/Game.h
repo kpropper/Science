@@ -31,7 +31,6 @@
 // PREPROCESSOR INCLUDE STATEMENTS
 #include "sssf_VS\stdafx.h"
 #include "sssf\gsm\state\GameState.h"
-#include "Box2D\Box2D.h"
 
 // FORWARD DECLARATIONS OF CLASSES USED BY GAME
 class GameDataLoader;
@@ -72,6 +71,8 @@ private:
 	// THIS WILL KEEP TRACK OF THE NAME OF THE LEVEL FILE
 	// THAT IS CURRENTLY BEING USED
 	wstring				currentLevelFileName;
+
+
 
 public:
 	// INLINED ACCESSOR METHODS - THE REAL THINGS

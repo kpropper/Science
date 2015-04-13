@@ -167,12 +167,20 @@ void ScienceDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	TMXMapImporter tmxMapImporter;
 	tmxMapImporter.loadWorld(game, W_LEVEL_1_DIR, W_LEVEL_1_NAME);
 
+
 	// SPECIFY WHO WILL DO THE PATHFINDING
 	GameStateManager *gsm = game->getGSM();
 	World *world = gsm->getWorld();
+	b2World *b2DWorld = world->getB2World();
 	OrthographicGridPathfinder *pathfinder = new OrthographicGridPathfinder(game);
 	SpriteManager *spriteManager = gsm->getSpriteManager();
 	spriteManager->setPathfinder(pathfinder);
+
+	//SETUP THE B2DWORLD
+	b2Vec2 gravity(0, 0);
+	b2DWorld->SetGravity(gravity);
+	b2DWorld->SetAllowSleeping(true);
+
 
 	// LOAD THE LEVEL'S SPRITE IMAGES
 	PoseurSpriteTypesImporter psti;

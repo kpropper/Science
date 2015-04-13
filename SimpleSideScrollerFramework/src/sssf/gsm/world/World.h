@@ -21,6 +21,7 @@
 #include "sssf\data_loader\GameDataLoader.h"
 #include "sssf\graphics\RenderList.h"
 #include "sssf\gsm\world\WorldLayer.h"
+#include "Box2D\Box2D.h"
 
 class Game;
 class SpriteManager;
@@ -38,12 +39,18 @@ private:
 	// THESE ARE THE BACKGROUND LAYERS
 	vector<WorldLayer*> *layers;
 
+	//BOX 2D WORLD
+	b2World *b2DWorld;
+	b2AABB *worldAABB;
+
 public:
 	// INLINED ACCESSOR METHODS
 	vector<WorldLayer*>*	getLayers()	{ return layers;				}
 	int						getNumLayers() { return layers->size(); }
 	int						getWorldHeight()	{ return worldHeight;			}
 	int						getWorldWidth()		{ return worldWidth;			}
+	b2AABB*				    getWorldAABB()	    { return worldAABB; }
+	b2World*				getB2World()		{ return b2DWorld; }
 
 	// INLINED MUTATOR METHODS
 	void setWorldHeight(int initWorldHeight)
@@ -62,4 +69,5 @@ public:
 	bool	isInsideCollidableTile(int centerX, int centerY);
 	void	unloadWorld();
 	void	update(Game *game);
+	void	setB2DGravity(int xGravity, int yGravity);
 };
