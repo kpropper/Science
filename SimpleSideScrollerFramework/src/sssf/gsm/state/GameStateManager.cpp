@@ -230,16 +230,3 @@ void GameStateManager::update(Game *game)
 		physics.update(game);
 	}
 }
-
-void GameStateManager::setSpriteSelected(bool selected, AnimatedSprite *spriteToChange)
-{
-	setIsSpriteSelected(selected);
-	if (selected)
-	{
-		spriteToChange->setIsSelected(true);
-	}
-	else
-	{
-		spriteToChange->setIsSelected(false);
-	}
-}

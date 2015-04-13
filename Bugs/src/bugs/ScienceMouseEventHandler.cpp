@@ -21,6 +21,7 @@ void ScienceMouseEventHandler::handleMousePressEvent(Game *game, int mouseX, int
 		GameStateManager *gsm = game->getGSM();
 		SpriteManager *spriteManager = gsm->getSpriteManager();
 
+		
 		// IF THERE IS NO SELECTED SPRITE LOOK FOR ONE
 		if (!(spriteManager->getIsSpriteSelected()))
 		{
@@ -29,26 +30,39 @@ void ScienceMouseEventHandler::handleMousePressEvent(Game *game, int mouseX, int
 			{
 				AnimatedSprite *selected = spriteManager->getSpriteAt(worldCoordinateX, worldCoordinateY);
 				spriteManager->setIsSpriteSelected(true);
-				//gsm->setSpriteSelected(true, selected);
 			}
 		}
 		else if (spriteManager->getSelectedSprite() != NULL)
 		{
+			// MOVE A SPRITE IN A DESIRED DIRECTION 
 			AnimatedSprite *selected = spriteManager->getSelectedSprite();
-			selected->getPhysicalProperties()->setVelocity(10,10);
+			PhysicalProperties *pp = selected->getPhysicalProperties();
+			float spriteX = pp->getX();
+			float spriteY = pp->getY();
+
+			//IF A SPRITE IS WHERE YOU WANT IT THEN STOP IT
+			if (((spriteX > worldCoordinateX - 64) && (spriteX < worldCoordinateX + 64)) && (spriteY > worldCoordinateY - 64) && (spriteY < worldCoordinateY + 64))
+			{
+				pp->setVelocity(0, 0);
+			}
+			else
+			{
+				float deltaX = worldCoordinateX - spriteX;
+				float deltaY = worldCoordinateY - spriteY;
+				float hyp = sqrtf((deltaX * deltaX) + (deltaY * deltaY));
+
+				pp->setVelocity((deltaX / hyp) * 3, (deltaY / hyp) * 3);
+			}
 			spriteManager->setIsSpriteSelected(false);
+
 		//	GridPathfinder *pathfinder = spriteManager->getPathfinder();
 		//	pathfinder->mapPath(selected, (float)worldCoordinateX, (float)worldCoordinateY);
 		//	gsm->setSpriteSelected(false, selected);
 		}
 		else
 		{
-		//	gsm->setSpriteSelected(false, NULL);
 			spriteManager->setIsSpriteSelected(false);
 		}
-	//	TopDownSprite *player = spriteManager->getPlayer();
-	//	GridPathfinder *pathfinder = spriteManager->getPathfinder();
-	//	pathfinder->mapPath(player, (float)worldCoordinateX, (float)worldCoordinateY);
 	}
 }
 

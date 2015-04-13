@@ -50,12 +50,6 @@ void ScienceKeyEventHandler::handleKeyEvents(Game *game)
 	float viewportHeight = (viewport->getViewportHeight())/2;
 
 
-	SpriteManager *spriteManager = gsm->getSpriteManager();
-	AnimatedSpriteType *enemySpriteType = spriteManager->getSpriteType(1);
-	
-	// INITALIZE RANDOM SEED
-	srand(time(NULL));
-
 	// IF THE GAME IS IN PROGRESS
 	if (gsm->isGameInProgress())
 	{

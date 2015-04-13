@@ -63,9 +63,6 @@ private:
 	// FOR DOING ALL COLLISION DETECTION AND RESOLUTION
 	Physics			physics;
 
-	bool isSpriteSelected = false;
-	AnimatedSprite *selectedSprite;
-
 public:
 	// INLINED ACCESSOR METHODS
 	GameState		getCurrentGameState()	{ return currentGameState;			}
@@ -75,7 +72,6 @@ public:
 	SpriteManager*	getSpriteManager()		{ return spriteManager;				}
 	World*			getWorld()				{ return &world;					}
 	wstring			getCurrentLevelName()	{ return levelNames[currentLevel];	}
-	bool			getIsSpriteSelected()	{ return isSpriteSelected;			}
 
 	// METHODS FOR TESTING THE CURRENT GAME STATE
 	bool			isAppActive();
@@ -88,10 +84,6 @@ public:
 	void			goToGame();
 	void			goToLoadLevel();
 	void			goToMainMenu();
-	void			setIsSpriteSelected(bool selected)
-	{
-		isSpriteSelected = selected;
-	}
 
 	// METHODS DEFINED in GameStateManager.cpp
 	GameStateManager();
@@ -104,5 +96,4 @@ public:
 	void			loadLevel(Game *game, wstring levelName);
 	void			unloadCurrentLevel();
 	void			update(Game *game);
-	void			setSpriteSelected(bool selected, AnimatedSprite *spriteToChange);
 };
