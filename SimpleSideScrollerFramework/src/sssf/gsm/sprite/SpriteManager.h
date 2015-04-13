@@ -41,6 +41,9 @@ private:
 	// WE MAY BE RENDERING AN ORTHOGRAPHIC MAP OR AN ISOMETRIC ONE
 	GridPathfinder *pathfinder;
 
+	AnimatedSprite *selectedSprite;
+
+	bool isSpriteSelected;
 
 
 public:
@@ -55,6 +58,7 @@ public:
 	list<Bot*>::iterator	getEndOfBotsIterator()	{ return bots.end();		}
 	Bot*					getBotAtFront()			{ return bots.front();		}
 	GridPathfinder*			getPathfinder()			{ return pathfinder;		}
+	bool					getIsSpriteSelected()	{ return isSpriteSelected;	}
 
 	// METHODS DEFINED IN SpriteManager.cpp
 	void				addBot(Bot *botToAdd);
@@ -71,5 +75,6 @@ public:
 	int					getNumberOfBotsInNode(int index);
 	int					getSpritesinScene();
 	AnimatedSprite*		getSpriteAt(int x, int y);
-	AnimatedSprite*     getSelectedSprite();
+	AnimatedSprite*     getSelectedSprite()			{ return selectedSprite; }
+	void				setIsSpriteSelected(bool selected) { isSpriteSelected = selected; }
 };

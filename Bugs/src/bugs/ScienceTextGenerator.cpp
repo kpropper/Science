@@ -14,6 +14,7 @@
 #include "sssf\game\Game.h"
 #include "sssf\graphics\GameGraphics.h"
 #include "sssf\gsm\sprite\TopDownSprite.h"
+#include "sssf\gsm\sprite\SpriteManager.h"
 #include "sssf\text\GameText.h"
 #include "sssf\timer\GameTimer.h"
 #include "sssf\platforms\Windows\WindowsInput.h"
@@ -86,12 +87,12 @@ void ScienceTextGenerator::appendEnemyLocation(Game *game)
 	wstringstream wss;
 	if (game->getGSM()->isGameInProgress())
 	{
-		if (game->getGSM()->getIsSpriteSelected())
+		if (game->getGSM()->getSpriteManager()->getIsSpriteSelected())
 		{
 			wss << L"True \n Center X: ";
-		//	wss << game->getGSM()->getSpriteManager()->getSelectedSprite()->getBoundingVolume()->getCenterX();
+			wss << game->getGSM()->getSpriteManager()->getSelectedSprite()->getBoundingVolume()->getCenterX();
 			wss << L"\n Center Y: ";
-		//	wss << game->getGSM()->getSpriteManager()->getSelectedSprite()->getBoundingVolume()->getCenterY();
+			wss << game->getGSM()->getSpriteManager()->getSelectedSprite()->getBoundingVolume()->getCenterY();
 
 		}
 		else
