@@ -184,7 +184,7 @@ void ScienceDataLoader::loadWorld(Game *game, wstring levelInitFile)
 	physics->setGravity(W_GRAVITY);
 	
 	TopDownSprite *player = spriteManager->getPlayer();
-	physics->addCollidableObject(player);
+//	physics->addCollidableObject(player);
 	player->setRotationInRadians(0.0f);
 
 	AnimatedSpriteType *playerSpriteType = spriteManager->getSpriteType(0);

@@ -71,8 +71,6 @@ public:
 	void				setPathfinder(GridPathfinder *initPathfinder) { pathfinder = initPathfinder; }
 	void				unloadSprites();
 	void				update(Game *game);
-	void				updateQuadtree(Bot *botToAdd);
-	int					getNumberOfBotsInNode(int index);
 	int					getSpritesinScene();
 	AnimatedSprite*		getSpriteAt(int x, int y);
 	AnimatedSprite*     getSelectedSprite()			{ return selectedSprite; }

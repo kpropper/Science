@@ -82,7 +82,7 @@ void SpriteManager::addSpriteItemsToRenderList(	Game *game)
 		Viewport *viewport = gui->getViewport();
 
 		// ADD THE PLAYER SPRITE
-		addSpriteToRenderList(&player, renderList, viewport);
+	//	addSpriteToRenderList(&player, renderList, viewport);		WE DON'T NEED A PLAYER SPRITE SO WE'LL REMOVE IT
 		spritesInScene = 0;
 		// NOW ADD THE REST OF THE SPRITES
 		list<Bot*>::iterator botIterator;
@@ -195,32 +195,6 @@ void SpriteManager::update(Game *game)
 	gameWorldHeight = game->getGSM()->getWorld()->getWorldHeight();
 	
 
-	// CLEAR THE QUADTREE
-	//	for (int cl = 0; cl > 21; cl++)
-	//	{
-	quadtree[0].clear();
-	quadtree[1].clear();
-	quadtree[2].clear();
-	quadtree[3].clear();
-	quadtree[4].clear();
-	quadtree[5].clear();
-	quadtree[6].clear();
-	quadtree[7].clear();
-	quadtree[8].clear();
-	quadtree[9].clear();
-	quadtree[10].clear();
-	quadtree[11].clear();
-	quadtree[12].clear();
-	quadtree[13].clear();
-	quadtree[14].clear();
-	quadtree[15].clear();
-	quadtree[16].clear();
-	quadtree[17].clear();
-	quadtree[18].clear();
-	quadtree[19].clear();
-	quadtree[20].clear();
-	quadtree[21].clear();
-//	}
 
 
 	// FIRST LET'S DO THE NECESSARY PATHFINDING
@@ -230,13 +204,12 @@ void SpriteManager::update(Game *game)
 	while (botIterator != bots.end())
 	{
 		Bot *bot = (*botIterator);
-		updateQuadtree(bot);
 		pathfinder->updatePath(bot);
 		botIterator++;
 	}
 
 	// THEN UPDATE THE PLAYER SPRITE ANIMATION FRAME/STATE/ROTATION
-	player.updateSprite();
+//	player.updateSprite();												WE'RE NOT USING THTE PLAYER SO WE WON'T UPDATE IT
 
 	// NOW UPDATE THE REST OF THE SPRITES ANIMATION FRAMES/STATES/ROTATIONS
 	botIterator = bots.begin();
@@ -249,69 +222,6 @@ void SpriteManager::update(Game *game)
 	}
 }
 
-void SpriteManager::updateQuadtree(Bot *botToAdd)
-{
-	float lx = botToAdd->getBoundingVolume()->getLeft();
-	float rx = botToAdd->getBoundingVolume()->getRight();
-	float ty = botToAdd->getBoundingVolume()->getTop();
-	float by = botToAdd->getBoundingVolume()->getBottom();
-	float quarterHeight = (gameWorldHeight / 4);
-	float halfHeight = (gameWorldHeight / 2);
-	float threeQuarterHeight = ((3 * gameWorldHeight) / 4);
-	float quarterWidth = (gameWorldWidth / 4);
-	float halfWidth = (gameWorldWidth / 2);
-	float threeQuarterWidth = ((3 * gameWorldWidth) / 4);
-
-	if ((lx <= halfWidth) && (rx >= halfWidth) && (ty <= halfHeight) && (by >= halfHeight))
-		quadtree[0].push_back(botToAdd);
-	else if ((lx <= quarterWidth) && (rx >= quarterWidth) && (ty <= quarterHeight) && (by >= quarterHeight))
-		quadtree[1].push_back(botToAdd);
-	else if ((lx <= threeQuarterWidth) && (rx >= threeQuarterWidth) && (ty <= quarterHeight) && (by >= quarterHeight))
-		quadtree[2].push_back(botToAdd);
-	else if ((lx <= quarterWidth) && (rx >= quarterWidth) && (ty <= threeQuarterHeight) && (by >= threeQuarterHeight))
-		quadtree[3].push_back(botToAdd);
-	else if ((lx <= threeQuarterWidth) && (rx >= threeQuarterWidth) && (ty <= threeQuarterHeight) && (by >= threeQuarterHeight))
-		quadtree[4].push_back(botToAdd);
-	else if ((rx < (gameWorldWidth) / 4) && (by < quarterHeight))
-		quadtree[5].push_back(botToAdd);
-	else if ((lx > quarterWidth) && (rx < halfHeight) && (by < quarterHeight))
-		quadtree[6].push_back(botToAdd);
-	else if ((rx < quarterWidth) && (ty > quarterHeight) && (by < halfHeight))
-		quadtree[7].push_back(botToAdd);
-	else if ((lx > quarterWidth) && (rx < halfWidth) && (ty > quarterHeight) && (by < halfHeight))
-		quadtree[8].push_back(botToAdd);
-	else if ((lx > gameWorldWidth / 2) && (rx < threeQuarterWidth) && (by < quarterHeight))
-		quadtree[9].push_back(botToAdd);
-	else if ((lx > threeQuarterWidth) && (by < quarterHeight))
-		quadtree[10].push_back(botToAdd);
-	else if ((lx > halfWidth) && (rx < threeQuarterWidth) && (ty > quarterHeight) && (by < halfHeight))
-		quadtree[11].push_back(botToAdd);
-	else if ((lx > threeQuarterWidth) && (ty > quarterHeight) && (by < halfHeight))
-		quadtree[12].push_back(botToAdd);
-	else if ((rx < quarterWidth) && (ty > halfHeight) && (by < threeQuarterHeight))
-		quadtree[13].push_back(botToAdd);
-	else if ((lx >quarterWidth) && (rx < halfWidth) && (ty >halfHeight) && (by < threeQuarterHeight))
-		quadtree[14].push_back(botToAdd);
-	else if ((rx < quarterWidth) && (ty > threeQuarterHeight))
-		quadtree[15].push_back(botToAdd);
-	else if ((lx > quarterWidth) && (rx < halfWidth) && (ty > threeQuarterHeight))
-		quadtree[16].push_back(botToAdd);
-	else if ((lx > halfWidth) && (rx < threeQuarterWidth) && (ty > halfHeight) && (by < threeQuarterHeight))
-		quadtree[17].push_back(botToAdd);
-	else if ((lx > threeQuarterWidth) && (ty > halfHeight) && (by < threeQuarterHeight))
-		quadtree[18].push_back(botToAdd);
-	else if ((lx > halfWidth) && (rx < threeQuarterWidth) && (ty > threeQuarterHeight))
-		quadtree[19].push_back(botToAdd);
-	else if ((lx > threeQuarterWidth) && (ty > threeQuarterHeight))
-		quadtree[20].push_back(botToAdd);
-	else
-		quadtree[21].push_back(botToAdd);
-}
-
-int SpriteManager::getNumberOfBotsInNode(int index)
-{
-	return quadtree[index].size();
-}
 
 AnimatedSprite* SpriteManager::getSpriteAt(int x, int y)
 {
@@ -340,24 +250,6 @@ AnimatedSprite* SpriteManager::getSpriteAt(int x, int y)
 
 	return NULL;
 }
-/*
-AnimatedSprite* SpriteManager::getSelectedSprite()
-{
 
-	list<Bot*>::iterator botIterator;
-	botIterator = bots.begin();
-	while (botIterator != bots.end())
-	{
-		Bot *bot = (*botIterator);
-		if (bot->getIsSelected())
-		{
-			AnimatedSprite *selected = bot;
-			return selected;
-		}
-		botIterator++;
-
-		return NULL;
-	}
-}*/
 
 
