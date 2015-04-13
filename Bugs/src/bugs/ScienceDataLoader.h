@@ -14,6 +14,7 @@
 #include "sssf\game\Game.h"
 #include "sssf\gsm\sprite\AnimatedSpriteType.h"
 #include "sssf\platforms\DirectX\DirectXTextureManager.h"
+#include "Box2D\Box2D.h"
 
 class ScienceDataLoader : public GameDataLoader
 {

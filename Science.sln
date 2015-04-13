@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TMXMapImporter", "TMXMapImp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XMLFileImporter", "XMLFileImporter\XMLFileImporter.vcxproj", "{63AEE7BB-3881-480C-AC34-DA38C98F0F1E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Box2D", "Box2D\Box2D_v2.3.0\Box2D\Build\vs2012\Box2D.vcxproj", "{98400D17-43A5-1A40-95BE-C53AC78E7694}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Box2D", "Box2D\Build\vs2012\Box2D.vcxproj", "{98400D17-43A5-1A40-95BE-C53AC78E7694}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
